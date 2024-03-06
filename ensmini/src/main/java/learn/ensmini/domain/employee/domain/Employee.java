@@ -5,6 +5,7 @@ import learn.ensmini.domain.annual.domain.Annual;
 import learn.ensmini.domain.commute.domain.Commute;
 import learn.ensmini.domain.team.domain.Team;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -53,4 +54,12 @@ public class Employee {
     @OneToMany(mappedBy = "employeeAnnual", fetch = FetchType.LAZY)
     private List<Annual> employeeAnnual = new ArrayList<>();
 
+    @Builder
+    private Employee(Team teamEmployee, String name, String role, LocalDate birthday, LocalDate workStartDate) {
+        this.teamEmployee = teamEmployee;
+        this.name = name;
+        this.role = role;
+        this.birthday = birthday;
+        this.workStartDate = workStartDate;
+    }
 }

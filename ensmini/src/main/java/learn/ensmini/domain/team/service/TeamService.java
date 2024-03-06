@@ -1,5 +1,6 @@
 package learn.ensmini.domain.team.service;
 
+import learn.ensmini.domain.team.dto.response.TeamListResponseDto;
 import learn.ensmini.domain.team.exception.DuplicateTeamNameException;
 import learn.ensmini.domain.team.domain.Team;
 import learn.ensmini.domain.team.dto.request.TeamCreateRequest;
@@ -8,6 +9,8 @@ import learn.ensmini.domain.team.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 팀 관리에 대한 서비스 클래스
@@ -45,5 +48,9 @@ public class TeamService {
         if (repository.countByName(request.getName()) > 0) {
             throw new DuplicateTeamNameException(1000, "중복된 사용자 입니다.");
         }
+    }
+
+    public List<TeamListResponseDto> findAllTeam() {
+        return repository.findAllTeam();
     }
 }
