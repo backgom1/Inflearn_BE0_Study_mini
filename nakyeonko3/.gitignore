@@ -1,4 +1,4 @@
-HELP.md
+nakyeonko3_mini
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -38,3 +38,5 @@ out/
 
 ### custom
 application.yml
+/gradle/wrapper/gradle-wrapper.jar
+/HELP.md
