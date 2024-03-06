@@ -35,7 +35,6 @@ public class Employee {
 
 
     public Employee(String name, Role role, LocalDate birthday, LocalDate workStartDate) {
-        validate(name);
         this.name = name;
         this.role = role;
         this.birthday = birthday;
@@ -44,13 +43,6 @@ public class Employee {
 
     public Employee(EmployeeSaveRequest request) {
         this(request.getName(), request.getRole(), request.getBirthday(), request.getWorkStartDate());
-    }
-
-    // TODO: 문자열 유효성 검사 util클래스로 따로 뺴기
-    public void validate(String name) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어 왔습니다.", name));
-        }
     }
 
 

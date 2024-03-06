@@ -19,12 +19,6 @@ class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("hello")
-    public String testSomething(@RequestParam String name) {
-        return "Hello, " + name;
-    }
-
-
     @GetMapping()
     public List<EmployeeGetAllResponse> getAll(){
         return employeeService.getAll();

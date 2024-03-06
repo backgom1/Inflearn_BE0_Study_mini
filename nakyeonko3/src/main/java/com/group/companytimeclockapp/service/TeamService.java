@@ -20,10 +20,6 @@ public class TeamService {
     @Transactional
     public void saveTeam(String name) {
         teamRepository.save(new Team(name));
-        System.out.println(teamRepository.findAll()
-                .stream()
-                .map(team -> team.getId() + team.getName())
-                .collect(Collectors.joining(", ")));
     }
 
     @Transactional

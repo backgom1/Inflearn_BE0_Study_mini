@@ -27,10 +27,6 @@ public class EmployeeService {
     @Transactional
     public void saveEmployee(EmployeeSaveRequest request) {
         employeeRepository.save(new Employee(request));
-        System.out.println(employeeRepository.findAll()
-                .stream()
-                .map(employee -> "{이름:" + employee.getName() + ", " + "직무:" + employee.getRole() + "}")
-                .collect(Collectors.joining(", ")));
     }
 
     @Transactional

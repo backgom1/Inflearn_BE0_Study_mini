@@ -36,9 +36,4 @@ public class Team {
                 .map(Employee::getName)
                 .collect(Collectors.toList());
     }
-
-    public void addEmployee(Employee employee) {
-        employee.updateTeamName(this);
-        employees.add(new Employee(employee.getName(), employee.getRole(), employee.getBirthday(), employee.getWorkStartDate()));
-    }
 }
