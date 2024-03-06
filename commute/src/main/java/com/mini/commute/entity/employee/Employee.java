@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MEMBER_ID")
+    @Column(name = "EMPLOYEE_ID")
     private Long id;
 
     private String name;
@@ -22,7 +22,7 @@ public class Employee {
     private Role role;
     private boolean isNewbie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // 지연 로딩을 해야 join을 사용하지 않고 employee를 가져온다.(Team 객체는 프록시 객체로 로딩)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
