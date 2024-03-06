@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import learn.ensmini.domain.commute.enums.CommuteStatus;
 import learn.ensmini.domain.employee.domain.Employee;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -29,4 +30,11 @@ public class Commute {
 
     @Column(name = "regist_date")
     private LocalDateTime registDate;
+
+    @Builder
+    private Commute(Employee employeeCommute, CommuteStatus status, LocalDateTime registDate) {
+        this.employeeCommute = employeeCommute;
+        this.status = status;
+        this.registDate = registDate;
+    }
 }

@@ -11,6 +11,7 @@ import learn.ensmini.domain.team.repository.TeamJpaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +24,8 @@ public class EmployeeService {
     private final EmployeeJpaRepository employeeJpaRepository;
     private final TeamJpaRepository teamJpaRepository;
     private final EmployeeQueryDSLRepository queryDSLRepository;
+
+    @Transactional
     public EmployeeCreateResponse save(EmployeeCreateRequest request) {
 
         Team team = teamJpaRepository.findTeamByName(request.getTeamName()).orElseThrow(IllegalArgumentException::new);
@@ -42,6 +45,8 @@ public class EmployeeService {
                 .msg("직원이 생성되었습니다.").build();
     }
 
+
+    @Transactional(readOnly = true)
     public List<EmployeeListResponseDto> findAllEmployee() {
         return queryDSLRepository.findAll();
     }

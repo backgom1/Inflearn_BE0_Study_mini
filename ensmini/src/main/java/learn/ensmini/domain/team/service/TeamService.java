@@ -9,6 +9,7 @@ import learn.ensmini.domain.team.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class TeamService {
      *
      * @param request 팀 생성 요청 파라미터
      */
+
+    @Transactional
     public void save(TeamCreateRequest request) throws DuplicateTeamNameException {
 
         teamValidation(request);
@@ -50,6 +53,7 @@ public class TeamService {
         }
     }
 
+    @Transactional(readOnly = true)
     public List<TeamListResponseDto> findAllTeam() {
         return repository.findAllTeam();
     }

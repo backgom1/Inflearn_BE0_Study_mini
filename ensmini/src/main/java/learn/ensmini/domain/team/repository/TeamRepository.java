@@ -4,7 +4,6 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import learn.ensmini.domain.team.domain.QTeam;
 import learn.ensmini.domain.team.dto.response.TeamListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static learn.ensmini.domain.team.domain.QTeam.*;
+import static learn.ensmini.domain.team.domain.QTeam.team;
 
 @Repository
 @Slf4j
