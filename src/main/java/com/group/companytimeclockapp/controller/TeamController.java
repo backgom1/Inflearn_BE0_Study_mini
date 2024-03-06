@@ -1,6 +1,5 @@
 package com.group.companytimeclockapp.controller;
 
-import com.group.companytimeclockapp.dto.request.EmployeeUpdateTeamRequest;
 import com.group.companytimeclockapp.dto.response.TeamGetAllRespone;
 import com.group.companytimeclockapp.service.TeamService;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("team")
 public class TeamController {
-    private TeamService teamService;
+    final private TeamService teamService;
 
     public TeamController(TeamService teamService) {
         this.teamService = teamService;
@@ -22,12 +21,7 @@ public class TeamController {
     }
 
     @GetMapping
-    public List<TeamGetAllRespone> getTeams(){
+    public List<TeamGetAllRespone> getTeams() {
         return teamService.getTeams();
-    }
-
-    @PutMapping
-    public void updateTeamName(@RequestBody EmployeeUpdateTeamRequest request){
-        teamService.updateTeamName(request);
     }
 }

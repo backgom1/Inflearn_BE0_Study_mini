@@ -9,11 +9,11 @@ import java.time.LocalDate;
 
 @Getter
 public class EmployeeGetAllResponse {
-    private String name;
-    private String teamName;
-    private Role role;
-    private LocalDate birthday;
-    private LocalDate workStartDate;
+    final private String name;
+    final private String teamName;
+    final private Role role;
+    final private LocalDate birthday;
+    final private LocalDate workStartDate;
 
     public EmployeeGetAllResponse(Employee employee) {
         this.name = employee.getName();
