@@ -24,7 +24,7 @@ public class TeamService {
 
     @Transactional
     public void saveTeam(TeamRequest request) {
-        teamRepository.save(new Team(request.getName()));
+        teamRepository.save(new Team(request.getName(), request.getAnnualRegisterPeriod()));
     }
 
     public List<TeamResponse> getTeams() {

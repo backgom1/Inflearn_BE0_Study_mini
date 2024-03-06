@@ -20,6 +20,7 @@ public class Team {
 
     private String name;
 //    private String manager; // 넣어야 하나? 아님 employeeId로 처리?
+    private long annualRegisterPeriod;
 
     /*
      필드 레벨에서 컬렌션은 초기화하는 것이 좋음
@@ -28,8 +29,9 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Employee> employees = new ArrayList<Employee>();
 
-    public Team(String name) {
+    public Team(String name, long annualRegisterPeriod) {
         this.name = name;
+        this.annualRegisterPeriod = annualRegisterPeriod;
     }
 
     public String pickManager() {

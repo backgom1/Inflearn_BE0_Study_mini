@@ -5,4 +5,5 @@ import lombok.Getter;
 @Getter
 public class TeamRequest {
     private String name;
+    private long annualRegisterPeriod;
 }
