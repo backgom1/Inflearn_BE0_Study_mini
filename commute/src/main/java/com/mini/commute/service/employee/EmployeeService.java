@@ -1,12 +1,16 @@
 package com.mini.commute.service.employee;
 
 import com.mini.commute.dto.employee.EmployeeRequest;
+import com.mini.commute.dto.employee.EmployeeResponse;
 import com.mini.commute.entity.employee.Employee;
 import com.mini.commute.entity.team.Team;
 import com.mini.commute.repository.employee.EmployeeRepository;
 import com.mini.commute.repository.team.TeamRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,5 +35,12 @@ public class EmployeeService {
         // 그 다음에 team 할당
         employee.setTeam(team);
         employeeRepository.save(employee);
+    }
+
+    public List<EmployeeResponse> getEmployees() {
+        return employeeRepository.findAll()
+                .stream()
+                .map(EmployeeResponse::new)
+                .collect(Collectors.toList());
     }
 }
