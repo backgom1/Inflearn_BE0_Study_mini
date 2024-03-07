@@ -68,3 +68,6 @@ ALTER TABLE employee
     ADD COLUMN work_start_date date;
 
 drop database company_timeclock;
+
+select * from Team t
+    left join employee e on t.name = e.name

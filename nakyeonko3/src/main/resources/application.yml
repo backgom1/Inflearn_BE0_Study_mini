@@ -9,10 +9,13 @@ spring:
     password: ""
     driver-class-name: org.h2.Driver
   jpa:
-    hibernate:
-      ddl-auto: create
+    properties:
+      hibernate:
+        ddl-auto: create
+        show_sql: true
+        format_sql: true
 server:
-  port: 8080
+  port: 58080
 ---
 spring:
   config:
@@ -25,11 +28,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
 server:
-  port: 8080
+  port: 58080

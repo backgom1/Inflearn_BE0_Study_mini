@@ -1,7 +1,6 @@
 package com.group.companytimeclockapp.dto.response;
 
 import com.group.companytimeclockapp.domain.Employee;
-import com.group.companytimeclockapp.domain.Team;
 import com.group.companytimeclockapp.util.Role;
 import lombok.Getter;
 
@@ -17,17 +16,10 @@ public class EmployeeGetAllResponse {
 
     public EmployeeGetAllResponse(Employee employee) {
         this.name = employee.getName();
-        this.teamName = setDefaultTeamIfNull(employee.getTeam());
+        this.teamName = employee.getTeam()
+                .getName();
         this.role = employee.getRole();
         this.birthday = employee.getBirthday();
         this.workStartDate = employee.getWorkStartDate();
-    }
-
-    public String setDefaultTeamIfNull(Team team) {
-        if (team == null) {
-            return "";
-        } else {
-            return team.getName();
-        }
     }
 }

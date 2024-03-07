@@ -22,12 +22,11 @@ public class TeamService {
         teamRepository.save(new Team(name));
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<TeamGetAllRespone> getTeams() {
         List<Team> teams = teamRepository.findAll();
         return teams.stream()
-                .map(team -> new TeamGetAllRespone(team.getName(), team.getManagerName(), team.getEmployees()
-                        .size()))
+                .map(TeamGetAllRespone::new)
                 .collect(Collectors.toList());
     }
 

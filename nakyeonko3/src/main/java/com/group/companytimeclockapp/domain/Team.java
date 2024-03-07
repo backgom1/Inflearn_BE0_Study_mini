@@ -4,6 +4,7 @@ import com.group.companytimeclockapp.util.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,7 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team")
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     protected Team() {
     }

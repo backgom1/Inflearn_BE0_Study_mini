@@ -40,7 +40,7 @@ public class EmployeeService {
         employee.updateTeamName(team);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<EmployeeGetAllResponse> getAll() {
         return employeeRepository.findAll()
                 .stream()

@@ -27,7 +27,7 @@ public class Employee {
     @Column(nullable = false)
     private LocalDate workStartDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
 
     protected Employee() {
@@ -50,5 +50,10 @@ public class Employee {
         this.team = team;
     }
 
-
+    public Team getTeam() {
+        if(this.team ==null) {
+            return new Team();
+        }
+        return team;
+    }
 }
