@@ -37,6 +37,11 @@ public class CommuteController {
         return commuteService.commuteEmployee(request);
     }
 
+    /**
+     * 특정 직원이 일한 시간에 대한 계산을 하는 컨트롤러 메서드
+     * @param request
+     * @return
+     */
     @GetMapping("/commute")
     @ResponseStatus(HttpStatus.OK)
     public CommuteMinuteListDto calculateWorkingTime(@RequestBody CommuteCalculateMinuteRequest request) {

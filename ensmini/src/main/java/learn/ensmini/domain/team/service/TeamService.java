@@ -4,6 +4,7 @@ import learn.ensmini.domain.team.dto.response.TeamListResponseDto;
 import learn.ensmini.domain.team.exception.DuplicateTeamNameException;
 import learn.ensmini.domain.team.domain.Team;
 import learn.ensmini.domain.team.dto.request.TeamCreateRequest;
+import learn.ensmini.domain.team.exception.TeamNotFoundException;
 import learn.ensmini.domain.team.repository.TeamJpaRepository;
 import learn.ensmini.domain.team.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
@@ -54,7 +55,11 @@ public class TeamService {
     }
 
     @Transactional(readOnly = true)
-    public List<TeamListResponseDto> findAllTeam() {
-        return repository.findAllTeam();
+    public List<TeamListResponseDto> findAllTeam() throws TeamNotFoundException {
+        List<TeamListResponseDto> findAllTeam = repository.findAllTeam();
+        if (findAllTeam.isEmpty()) {
+            throw new TeamNotFoundException(1001, "목록이 존재하지 않습니다.");
+        }
+        return findAllTeam;
     }
 }

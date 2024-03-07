@@ -13,12 +13,14 @@ import learn.ensmini.domain.employee.domain.Employee;
 import learn.ensmini.domain.employee.repository.EmployeeJpaRepository;
 import learn.ensmini.domain.employee.repository.EmployeeQueryDSLRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class CommuteService {
     private final CommuteJpaRepository commuteJpaRepository;
@@ -35,6 +37,7 @@ public class CommuteService {
 
         if (!commute.isEmpty()) {
             //퇴근
+            log.info("========= 퇴근 =========");
             commuteJpaRepository.save(Commute.builder()
                     .employeeCommute(employee)
                     .status(CommuteStatus.CHECKOUT)
@@ -45,6 +48,7 @@ public class CommuteService {
                     .msg("퇴근을 성공적으로 했습니다.")
                     .build();
         } else {
+            log.info("========= 출근 =========");
             // 출근
             commuteJpaRepository.save(Commute.builder()
                     .employeeCommute(employee)
@@ -59,7 +63,7 @@ public class CommuteService {
     }
 
     /**
-     * 사용자에 대한
+     * 직원에 대한 일별로 일한시간을 계산한 메서드
      *
      * @return
      */
