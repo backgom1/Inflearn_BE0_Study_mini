@@ -1,7 +1,7 @@
 package com.group.companytimeclockapp.dto.response;
 
 
-import com.group.companytimeclockapp.domain.Team;
+import com.group.companytimeclockapp.entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

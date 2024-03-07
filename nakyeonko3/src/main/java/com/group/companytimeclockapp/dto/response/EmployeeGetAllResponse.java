@@ -1,7 +1,7 @@
 package com.group.companytimeclockapp.dto.response;
 
-import com.group.companytimeclockapp.domain.Employee;
-import com.group.companytimeclockapp.util.Role;
+import com.group.companytimeclockapp.entity.Employee;
+import com.group.companytimeclockapp.entity.Role;
 import lombok.Getter;
 
 import java.time.LocalDate;

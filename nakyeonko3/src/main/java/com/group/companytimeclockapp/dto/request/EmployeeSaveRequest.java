@@ -1,6 +1,6 @@
 package com.group.companytimeclockapp.dto.request;
 
-import com.group.companytimeclockapp.util.Role;
+import com.group.companytimeclockapp.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
