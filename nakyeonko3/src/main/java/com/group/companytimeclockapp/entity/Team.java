@@ -1,6 +1,5 @@
-package com.group.companytimeclockapp.domain;
+package com.group.companytimeclockapp.entity;
 
-import com.group.companytimeclockapp.util.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 

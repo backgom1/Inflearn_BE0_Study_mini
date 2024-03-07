@@ -1,7 +1,7 @@
 package com.group.companytimeclockapp.dto.response;
 
-import com.group.companytimeclockapp.domain.Employee;
-import com.group.companytimeclockapp.util.Role;
+import com.group.companytimeclockapp.entity.Employee;
+import com.group.companytimeclockapp.entity.Role;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -16,8 +16,7 @@ public class EmployeeGetAllResponse {
 
     public EmployeeGetAllResponse(Employee employee) {
         this.name = employee.getName();
-        this.teamName = employee.getTeam()
-                .getName();
+        this.teamName = employee.getTeam().getName();
         this.role = employee.getRole();
         this.birthday = employee.getBirthday();
         this.workStartDate = employee.getWorkStartDate();

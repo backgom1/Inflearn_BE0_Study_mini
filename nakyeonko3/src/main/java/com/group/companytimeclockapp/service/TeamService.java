@@ -1,6 +1,6 @@
 package com.group.companytimeclockapp.service;
 
-import com.group.companytimeclockapp.domain.Team;
+import com.group.companytimeclockapp.entity.Team;
 import com.group.companytimeclockapp.dto.response.TeamGetAllRespone;
 import com.group.companytimeclockapp.repository.TeamRepository;
 import org.springframework.stereotype.Service;

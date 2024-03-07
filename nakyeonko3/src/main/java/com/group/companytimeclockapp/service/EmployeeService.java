@@ -1,7 +1,7 @@
 package com.group.companytimeclockapp.service;
 
-import com.group.companytimeclockapp.domain.Employee;
-import com.group.companytimeclockapp.domain.Team;
+import com.group.companytimeclockapp.entity.Employee;
+import com.group.companytimeclockapp.entity.Team;
 import com.group.companytimeclockapp.dto.request.EmployeeSaveRequest;
 import com.group.companytimeclockapp.dto.response.EmployeeGetAllResponse;
 import com.group.companytimeclockapp.repository.EmployeeRepository;

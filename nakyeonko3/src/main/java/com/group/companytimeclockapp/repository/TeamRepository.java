@@ -1,6 +1,6 @@
 package com.group.companytimeclockapp.repository;
 
-import com.group.companytimeclockapp.domain.Team;
+import com.group.companytimeclockapp.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
