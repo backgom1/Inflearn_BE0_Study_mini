@@ -28,7 +28,7 @@ public class TeamController {
 
     @GetMapping("/teams")
     public ResponseEntity<ResponseData> getAllTeams() {
-        List<TeamResponse> teamResponses = teamService.getTeams();
+        List<TeamResponse> teamResponses = teamService.getTeamsByFetch();
         ResponseData responseData = new ResponseData(200, teamResponses);
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
