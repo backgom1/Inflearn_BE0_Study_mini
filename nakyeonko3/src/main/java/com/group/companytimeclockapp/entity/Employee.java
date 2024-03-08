@@ -44,15 +44,7 @@ public class Employee {
         this(request.getName(), request.getRole(), request.getBirthday(), request.getWorkStartDate());
     }
 
-
     public void updateTeamName(Team team) {
         this.team = team;
-    }
-
-    public Team getTeam() {
-        if(this.team ==null) {
-            return new Team();
-        }
-        return team;
     }
 }
