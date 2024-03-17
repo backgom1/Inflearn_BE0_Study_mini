@@ -29,6 +29,9 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
 
+    @Enumerated(EnumType.STRING)
+    private WorkStatus workStatus;
+
     protected Employee() {
     }
 
@@ -46,5 +49,9 @@ public class Employee {
 
     public void updateTeamName(Team team) {
         this.team = team;
+    }
+
+    public void updateWorkStatus(WorkStatus workStatus) {
+        this.workStatus = workStatus;
     }
 }

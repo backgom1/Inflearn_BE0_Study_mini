@@ -5,19 +5,20 @@ use company_timeclock;
 show tables;
 
 
-
-
 create table employee
 (
     id              bigint auto_increment,
     name            varchar(255) not null,
     role            tinyint      not null,
     birthday        date         not null,
-    team_name       varchar(255),
+    team_id         bigint,
     work_start_date date,
+    work_status     varchar(20),
     primary key (id)
 );
 
+
+# drop table employee;
 
 create table team
 (
@@ -36,10 +37,20 @@ create table work_time_sheet
     primary key (id)
 );
 
+select *
+from work_time_sheet;
+
+select id, clock_in_time, clock_out_time, employee_id
+from work_time_sheet
+where employee_id = 1
+ORDER BY id DESC LIMIT 1;
+
+
 create table work_statuses
 (
     id          bigint auto_increment,
     work_status varchar(20),
+    employee_id bigint,
     primary key (id)
 );
 
@@ -52,13 +63,16 @@ insert into work_statuses(work_status)
 values ('CLOCK_IN');
 
 select *
+from work_time_sheet;
+
+select *
 from work_statuses;
 
 select id, clock_in_time, clock_out_time, employee_id
 from work_time_sheet;
 
 delete
-from work_time_sheet;
+from work_time_sheet where id = 7;
 
 delete
 from work_statuses;
@@ -110,6 +124,7 @@ drop database company_timeclock;
 
 select *
 from Team t
-         left join employee e on t.name = e.name
+         left join employee e on t.name = e.name;
 
 drop table work_time_sheet;
+drop table work_statuses;
