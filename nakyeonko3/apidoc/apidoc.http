@@ -1,0 +1,13 @@
+
+### 출근 시간 갱신
+
+POST http://localhost:58080/api/v1/workTimeSheets/clockIn?id=1
+
+### 퇴근 시간 갱신
+
+PUT http://localhost:58080/api/v1/workTimeSheets/clockOut?id=1
+
+
+
+
+

@@ -24,8 +24,7 @@ public class TeamService {
 
     @Transactional(readOnly = true)
     public List<TeamGetAllRespone> getTeams() {
-        List<Team> teams = teamRepository.findAll();
-        return teams.stream()
+        return teamRepository.findAll().stream()
                 .map(TeamGetAllRespone::new)
                 .collect(Collectors.toList());
     }

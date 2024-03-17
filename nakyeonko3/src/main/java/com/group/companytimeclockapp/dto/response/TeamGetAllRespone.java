@@ -12,7 +12,7 @@ import java.util.List;
 public class TeamGetAllRespone {
     private final String name;
     private final List<String> manager;
-    private final Integer memberCount;
+    private final int memberCount;
 
     public TeamGetAllRespone(Team team) {
         this(team.getName(), team.getManagerName(), team.getEmployees()
