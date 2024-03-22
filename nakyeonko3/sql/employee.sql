@@ -4,6 +4,7 @@ create database company_timeclock;
 use company_timeclock;
 show tables;
 
+# employee
 
 create table employee
 (
@@ -20,6 +21,8 @@ create table employee
 
 # drop table employee;
 
+
+## team
 create table team
 (
     id   bigint auto_increment,
@@ -28,11 +31,13 @@ create table team
     unique key (name)
 );
 
+## work_time_sheet
+
 create table work_time_sheet
 (
     id           bigint auto_increment,
-    clock_in_time  time(6),
-    clock_out_time time(6),
+    clock_in_time  time(0),
+    clock_out_time time(0),
     employee_id  bigint not null,
     primary key (id)
 );
@@ -40,12 +45,14 @@ create table work_time_sheet
 select *
 from work_time_sheet;
 
+drop table work_time_sheet;
+
 select id, clock_in_time, clock_out_time, employee_id
 from work_time_sheet
 where employee_id = 1
 ORDER BY id DESC LIMIT 1;
 
-
+# work_statuses
 create table work_statuses
 (
     id          bigint auto_increment,
@@ -71,11 +78,11 @@ from work_statuses;
 select id, clock_in_time, clock_out_time, employee_id
 from work_time_sheet;
 
-delete
-from work_time_sheet where id = 7;
+# delete
+# from work_time_sheet where id = 7;
 
-delete
-from work_statuses;
+# delete
+# from work_statuses;
 
 
 
@@ -90,6 +97,7 @@ insert into employee(name, role, birthday)
 values ('고낙연', 4, now());
 rollback;
 
+select * from work_time_sheet where employee_id = 1 ORDER BY id DESC LIMIT 1;
 
 -- test, etc : sqls
 select *
