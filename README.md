@@ -20,6 +20,23 @@
 
 - [참고 자료](#참고)
 
+## 실행 방법
+
+1. 프로젝트를 클론
+   $ git clone https://github.com/backgom1/Inflearn_BE0_Study_mini.git
+
+2. 프로젝트 디렉토리로 이동
+   $ cd Inflearn_BE0_Study_mini
+
+3. 의존성을 설치합니다.
+   $ ./gradlew build
+
+4. 서버를 실행합니다.
+   $ ./gradlew bootRun
+
+5. 브라우저에서 다음 URL로 접속합니다.
+   http://localhost:8080
+
 ## 프로젝트 상세 설명
 
 해당 프로젝트에 대해 더 자세히 설명된 자료는 `프로젝트상세.md`를 확인 하시면 될 것 같습니다.
@@ -82,7 +99,9 @@ employee테이블과 team테이블을 생성하는 ddl문을 작성했다.
 > 처음에 동일한 이름이 등록되는 것을 막기 위해 경고 메시지를 출력하려 했지만, 다른 스터디원의 피드백을 듣고 지나치게 과한 처리라고 생각하고 삭제 했다.
 
 ```
+
 - 한국에서 동명이인만 해도 수십명이 되는 경우가 있다.
+
 ```
 
 - 직무(`role`)은 `MANAGER`와 `MANAGER` 외의 다른 문자열 입력을 허용하지 않는다. 매니저와 직원은 직무 외의 다른 직무 등록은 허용하지 않는다.
@@ -188,9 +207,11 @@ employee테이블과 team테이블을 생성하는 ddl문을 작성했다.
 동일한 url을 가진 레스트컨트롤러 메서드가 존재하면 이런 에러가 난다.
 
 ```
+
 .springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'employeeController' method
 com.group.companytimeclockapp.controller.EmployeeController#saveEmployee(EmployeeSaveRequest)
 to {POST [/employee]}: There is already 'employeeController' bean method
+
 ```
 
 #### Error: creating bean with name 'requestMappingHandlerMapping' defined in class path resource.
@@ -203,9 +224,11 @@ to {POST [/employee]}: There is already 'employeeController' bean method
 `
 
 ```
+
 .springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'employeeController' method
 com.group.companytimeclockapp.controller.EmployeeController#saveEmployee(EmployeeSaveRequest)
 to {POST [/employee]}: There is already 'employeeController' bean method
+
 ```
 
 에러 메시지를 확인하고 바로 어디서 에러가 났는지 확인 할 수 있었기 때문에 큰 문제가 아니였다.
@@ -220,3 +243,7 @@ to {POST [/employee]}: There is already 'employeeController' bean method
   [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started)
 
 - [📋 데이터 모델링 개념 & ERD 다이어그램 작성 💯 총정리](https://inpa.tistory.com/entry/DB-%F0%9F%93%9A-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EB%A7%81-1N-%EA%B4%80%EA%B3%84-%F0%9F%93%88-ERD-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8)
+
+```
+
+```
